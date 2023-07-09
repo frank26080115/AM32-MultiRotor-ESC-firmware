@@ -36,7 +36,7 @@
 
 /****************************      F051 Targets ************************************/
 #ifdef FD6288_F051
-#define FILE_NAME				"FD6288_F051"
+#define FILE_NAME               "FD6288_F051"
 #define FIRMWARE_NAME           "FD6288_PA2  "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_A
@@ -45,7 +45,7 @@
 #endif
 
 #ifdef IFLIGHT_F051
-#define FILE_NAME				"IFLIGHT_F051"
+#define FILE_NAME               "IFLIGHT_F051"
 #define FIRMWARE_NAME           "IFlight_50A "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_B
@@ -54,7 +54,7 @@
 #endif
 
 #ifdef MP6531_F051
-#define FILE_NAME				"MP6531_F051"
+#define FILE_NAME               "MP6531_F051"
 #define FIRMWARE_NAME           "Mp6531_Dev  "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_C
@@ -62,7 +62,7 @@
 #endif
 
 #ifdef DAKEFPV_35A_F051
-#define FILE_NAME				"DAKEFPV_35A_F051"
+#define FILE_NAME               "DAKEFPV_35A_F051"
 #define FIRMWARE_NAME           "DakeFPV 35A"
 #define DEAD_TIME               18
 #define HARDWARE_GROUP_F0_B
@@ -70,7 +70,7 @@
 #endif
 
 #ifdef RAZOR32_F051
-#define FILE_NAME				"RAZOR32_F051"
+#define FILE_NAME               "RAZOR32_F051"
 #define FIRMWARE_NAME           "Razor32     "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_C
@@ -79,7 +79,7 @@
 #endif
 
 #ifdef TMOTOR55_F051
-#define FILE_NAME				"TMOTOR55_F051"
+#define FILE_NAME               "TMOTOR55_F051"
 #define FIRMWARE_NAME           "T-MOTOR 55A "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_B
@@ -87,7 +87,7 @@
 #endif
 
 #ifdef TMOTOR45_F051
-#define FILE_NAME				"TMOTOR45_F051"
+#define FILE_NAME               "TMOTOR45_F051"
 #define FIRMWARE_NAME           "T-MOTOR 45A "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_C
@@ -95,7 +95,7 @@
 #endif
 
 #ifdef HGLRC_F051
-#define FILE_NAME				"HGLRC_F051"
+#define FILE_NAME               "HGLRC_F051"
 #define FIRMWARE_NAME           "HGLRC_60A   "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_A
@@ -103,7 +103,7 @@
 #endif
 
 #ifdef SISKIN_F051
-#define FILE_NAME				"SISKIN_F051"
+#define FILE_NAME               "SISKIN_F051"
 #define FIRMWARE_NAME           "SISKIN_PA2  "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_A
@@ -111,7 +111,7 @@
 #endif
 
 #ifdef DIATONE_F051
-#define FILE_NAME				"DIATONE_F051"
+#define FILE_NAME               "DIATONE_F051"
 #define FIRMWARE_NAME           "DIATONE GEN "
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_F
@@ -119,7 +119,7 @@
 #endif
 
 #ifdef MAMBA_F40PRO_F051
-#define FILE_NAME				"MAMBA_F40PRO_F051"
+#define FILE_NAME               "MAMBA_F40PRO_F051"
 #define FIRMWARE_NAME           "MAMBA F40PRO"
 #define DEAD_TIME               20
 #define HARDWARE_GROUP_F0_F
@@ -127,7 +127,7 @@
 #endif
 
 #ifdef MAMBA_F50PRO_F051
-#define FILE_NAME				"MAMBA_F50PRO_F051"
+#define FILE_NAME               "MAMBA_F50PRO_F051"
 #define FIRMWARE_NAME           "MAMBA F50PRO"
 #define DEAD_TIME               14
 #define HARDWARE_GROUP_F0_F
@@ -135,7 +135,7 @@
 #endif
 
 #ifdef MAMBA_F60PRO_F051
-#define FILE_NAME				"MAMBA_F60PRO_F051"
+#define FILE_NAME               "MAMBA_F60PRO_F051"
 #define FIRMWARE_NAME           "MAMBA F60PRO"
 #define DEAD_TIME               20
 #define HARDWARE_GROUP_F0_F
@@ -143,7 +143,7 @@
 #endif
 
 #ifdef WRAITH32V1_F051
-#define FILE_NAME				"WRAITH32V1_F051"
+#define FILE_NAME               "WRAITH32V1_F051"
 #define FIRMWARE_NAME           "Wraith_32 V1"
 #define DEAD_TIME               45
 #define TARGET_VOLTAGE_DIVIDER  75
@@ -152,7 +152,7 @@
 #endif
 
 #ifdef WRAITH32V2_F051
-#define FILE_NAME				"WRAITH32V2_F051"
+#define FILE_NAME               "WRAITH32V2_F051"
 #define FIRMWARE_NAME           "Wraith_32 V2"
 #define DEAD_TIME               45
 #define TARGET_VOLTAGE_DIVIDER  75
@@ -163,7 +163,7 @@
 #endif
 
 #ifdef  AIKON20X20_F051
-#define FILE_NAME				"AIKON20X20_F051"
+#define FILE_NAME               "AIKON20X20_F051"
 #define FIRMWARE_NAME           "Aikon 20x20 "
 #define DEAD_TIME               40
 #define HARDWARE_GROUP_F0_C
@@ -171,7 +171,7 @@
 #endif
 
 #ifdef  AIKONSINGLE_F051
-#define FILE_NAME				"AIKONSINGLE_F051"
+#define FILE_NAME               "AIKONSINGLE_F051"
 #define FIRMWARE_NAME           "Aikon AK32  "
 #define DEAD_TIME               40
 #define HARDWARE_GROUP_F0_B
@@ -179,7 +179,7 @@
 #endif
 
 #ifdef  CRTEENSY_HILARIESC_F051
-#define FILE_NAME				"CRTEENSY_HILARIESC_F051"
+#define FILE_NAME               "CRTEENSY_HILARIESC_F051"
 #define FIRMWARE_NAME           "cr hilariesc"
 #define DEAD_TIME               40
 #define HARDWARE_GROUP_F0_G
@@ -187,7 +187,7 @@
 #endif
 
 #ifdef FLYCOLOR_F051
-#define FILE_NAME				"FLYCOLOR_F051"
+#define FILE_NAME               "FLYCOLOR_F051"
 #define FIRMWARE_NAME           "Flycolor Gen"
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_A
@@ -196,7 +196,7 @@
 #endif
 
 #ifdef HVFLYCOLOR_F051
-#define FILE_NAME				"HVFLYCOLOR_F051"
+#define FILE_NAME               "HVFLYCOLOR_F051"
 #define FIRMWARE_NAME           "FLYCOLOR HV "
 #define DEAD_TIME               70
 #define HARDWARE_GROUP_F0_H
@@ -204,7 +204,7 @@
 #endif
 
 #ifdef SKYSTARS_F051
-#define FILE_NAME				"SKYSTARS_F051"
+#define FILE_NAME               "SKYSTARS_F051"
 #define FIRMWARE_NAME           "SkyStars K55"
 #define DEAD_TIME               40
 #define HARDWARE_GROUP_F0_B
@@ -213,7 +213,7 @@
 
 
 #ifdef BLPWR_F051
-#define FILE_NAME				"BLPWR_F051"
+#define FILE_NAME               "BLPWR_F051"
 #define FIRMWARE_NAME           "BlPwr-ESC"
 #define DEAD_TIME               20
 #define HARDWARE_GROUP_F0_A
@@ -224,7 +224,7 @@
 #endif
 
 #ifdef NEUTRONRC_F051
-#define FILE_NAME				"NEUTRONRC_F051"
+#define FILE_NAME               "NEUTRONRC_F051"
 #define FIRMWARE_NAME           "NeutronRC F0"
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_B
@@ -236,7 +236,7 @@
 #endif
 
 #ifdef  AM32REF_F051
-#define FILE_NAME				"AM32REF_F051"
+#define FILE_NAME               "AM32REF_F051"
 #define FIRMWARE_NAME           "AM32 Ref-ESC"
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_F0_B
@@ -249,7 +249,7 @@
 #endif
 
 #ifdef  RHINO80A_F051
-#define FILE_NAME				"RHINO80A_F051"
+#define FILE_NAME               "RHINO80A_F051"
 #define FIRMWARE_NAME           "RHINO80A_F0 "
 #define DEAD_TIME               20
 #define MILLIVOLT_PER_AMP       34
@@ -260,8 +260,8 @@
 /*******************************   G071 Targets *********************************/
 
 #ifdef  GEN_64K_G071
-#define FILE_NAME				"GEN_64K_G071"
-#define FIRMWARE_NAME  			 "G071 64kESC "
+#define FILE_NAME               "GEN_64K_G071"
+#define FIRMWARE_NAME            "G071 64kESC "
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       67
 #define CURRENT_OFFSET          0
@@ -272,8 +272,8 @@
 #endif
 
 #ifdef TMOTOR_G071
-#define FILE_NAME				"TMOTOR_G071"
-#define FIRMWARE_NAME  			"T-Motor G071"
+#define FILE_NAME               "TMOTOR_G071"
+#define FIRMWARE_NAME           "T-Motor G071"
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       67
 #define CURRENT_OFFSET          0
@@ -285,8 +285,8 @@
 
 
 #ifdef  NEUTRONRC_G071
-#define FILE_NAME				"NEUTRONRC_G071"
-#define FIRMWARE_NAME  			"NeutronRC G0"
+#define FILE_NAME               "NEUTRONRC_G071"
+#define FIRMWARE_NAME           "NeutronRC G0"
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       33
 #define CURRENT_OFFSET          0
@@ -298,8 +298,8 @@
 
 
 #ifdef AIKON_PRO_G071
-#define FILE_NAME				"AIKON_PRO_G071"
-#define FIRMWARE_NAME  			"AIKON PRO 50"
+#define FILE_NAME               "AIKON_PRO_G071"
+#define FIRMWARE_NAME           "AIKON PRO 50"
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       67
 #define CURRENT_OFFSET          0
@@ -310,8 +310,8 @@
 
 
 #ifdef  GEN_128K_G071
-#define FILE_NAME				"GEN_128K_G071"
-#define FIRMWARE_NAME  			"G071 DevESC "
+#define FILE_NAME               "GEN_128K_G071"
+#define FIRMWARE_NAME           "G071 DevESC "
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       15
 #define CURRENT_OFFSET          0
@@ -321,8 +321,8 @@
 
 
 #ifdef  IFLIGHT_BLITZ_G071
-#define FILE_NAME				"IFLIGHT_BLITZ_G071"
-#define FIRMWARE_NAME  			"Blitz 55 G0 "
+#define FILE_NAME               "IFLIGHT_BLITZ_G071"
+#define FIRMWARE_NAME           "Blitz 55 G0 "
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       15
 #define CURRENT_OFFSET          0
@@ -333,8 +333,8 @@
 
 
 #ifdef  DT120_G071
-#define FILE_NAME				"DT120_G071"
-#define FIRMWARE_NAME  			"G071 120 DT "
+#define FILE_NAME               "DT120_G071"
+#define FIRMWARE_NAME           "G071 120 DT "
 #define DEAD_TIME               120
 #define MILLIVOLT_PER_AMP       15
 #define CURRENT_OFFSET          0
@@ -343,8 +343,8 @@
 #endif
 
 #ifdef  DT120_64K_G071
-#define FILE_NAME				"DT120_64K_G071"
-#define FIRMWARE_NAME  			"G071 120 64K"
+#define FILE_NAME               "DT120_64K_G071"
+#define FIRMWARE_NAME           "G071 120 64K"
 #define DEAD_TIME               120
 #define MILLIVOLT_PER_AMP       67
 #define CURRENT_OFFSET          0
@@ -353,8 +353,8 @@
 #endif
 
 #ifdef  DT160_64K_G071
-#define FILE_NAME				"DT160_64K_G071"
-#define FIRMWARE_NAME  			"G071 160 64K"
+#define FILE_NAME               "DT160_64K_G071"
+#define FIRMWARE_NAME           "G071 160 64K"
 #define DEAD_TIME               210
 #define MILLIVOLT_PER_AMP       67
 #define CURRENT_OFFSET          0
@@ -364,7 +364,7 @@
 
 
 #ifdef  PWM_ENABLE_G071
-#define FILE_NAME				"PWM_ENABLE_G071"
+#define FILE_NAME               "PWM_ENABLE_G071"
 #define FIRMWARE_NAME           "G071 PWM_EN "
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       20
@@ -375,7 +375,7 @@
 #endif
 
 #ifdef  OPEN_DRAIN_G071
-#define FILE_NAME				"OPEN_DRAIN_G071"
+#define FILE_NAME               "OPEN_DRAIN_G071"
 #define FIRMWARE_NAME           "G071 TEENSY "
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       20
@@ -386,7 +386,7 @@
 #endif
 
 #ifdef  OPEN_DRAIN_B_G071
-#define FILE_NAME				"OPEN_DRAIN_B_G071"
+#define FILE_NAME               "OPEN_DRAIN_B_G071"
 #define FIRMWARE_NAME           "G071 TEENSYB"
 #define DEAD_TIME               60
 #define MILLIVOLT_PER_AMP       20
@@ -397,10 +397,10 @@
 
 /***********************************F031 Targets**********************************/
 
-#ifdef 	   REF_F031
-#define    FILE_NAME				"REF_F031"
-#define    FIRMWARE_NAME  			"F031 Ref ESC"
-#define    DEAD_TIME 				60
+#ifdef     REF_F031
+#define    FILE_NAME                "REF_F031"
+#define    FIRMWARE_NAME            "F031 Ref ESC"
+#define    DEAD_TIME                60
 #define    HARDWARE_GROUP_F031_A
 #define    TARGET_STALL_PROTECTION_INTERVAL 8000
 #define    MILLIVOLT_PER_AMP           60
@@ -410,19 +410,19 @@
 
 /********************************** defaults if not set ***************************/
 
-#ifndef 	TARGET_VOLTAGE_DIVIDER
-#define 	TARGET_VOLTAGE_DIVIDER  	110
+#ifndef     TARGET_VOLTAGE_DIVIDER
+#define     TARGET_VOLTAGE_DIVIDER      110
 #endif
 
-#ifndef 	SINE_DIVIDER
-#define 	SINE_DIVIDER 				2
+#ifndef     SINE_DIVIDER
+#define     SINE_DIVIDER                2
 #endif
 
-#ifndef  	MILLIVOLT_PER_AMP
+#ifndef     MILLIVOLT_PER_AMP
 #define     MILLIVOLT_PER_AMP           20
-#endif 
+#endif
 
-#ifndef 	CURRENT_OFFSET
+#ifndef     CURRENT_OFFSET
 #define     CURRENT_OFFSET              0     // in millivolt measured at output of op-amp 
 #endif
 
@@ -535,7 +535,6 @@
 #define PHASE_C_COMP COMP_PA0
 
 #endif
-
 
 
 #ifdef HARDWARE_GROUP_F0_E
@@ -683,9 +682,7 @@
 #endif
 
 
-
 /************************************* G071 Hardware Groups **********************************/
-
 
 
 #ifdef     HARDWARE_GROUP_G0_A
@@ -1160,7 +1157,7 @@
 #define COM_TIMER          TIM14
 #define TIM1_AUTORELOAD    1999
 #define APPLICATION_ADDRESS 0x08001000
-#define MAIN_COMP	COMP1
+#define MAIN_COMP   COMP1
 #define EXTI_LINE   LL_EXTI_LINE_21
 #define TARGET_MIN_BEMF_COUNTS 6
 //#define USE_SERIAL_TELEMETRY // moved to individual ESCs
@@ -1194,32 +1191,21 @@
 #define COM_TIMER          TIM14
 #define TIM1_AUTORELOAD    2667
 #define APPLICATION_ADDRESS 0x08001000
-#define MAIN_COMP	COMP2
+#define MAIN_COMP   COMP2
 #define EXTI_LINE   LL_EXTI_LINE_18
 #define TARGET_MIN_BEMF_COUNTS 8
 #define USE_ADC
 #ifndef CURRENT_ADC_CHANNEL
-	#define CURRENT_ADC_CHANNEL LL_ADC_CHANNEL_5
+#define CURRENT_ADC_CHANNEL LL_ADC_CHANNEL_5
 #endif
 #ifndef VOLTAGE_ADC_CHANNEL
-	#define VOLTAGE_ADC_CHANNEL LL_ADC_CHANNEL_6
+#define VOLTAGE_ADC_CHANNEL LL_ADC_CHANNEL_6
 #endif
 #ifndef CURRENT_ADC_PIN
-	#define CURRENT_ADC_PIN LL_GPIO_PIN_5
+#define CURRENT_ADC_PIN LL_GPIO_PIN_5
 #endif
 #ifndef VOLTAGE_ADC_PIN
-	#define VOLTAGE_ADC_PIN LL_GPIO_PIN_6
+#define VOLTAGE_ADC_PIN LL_GPIO_PIN_6
 #endif
 #endif
-
-
-
-
-
-
-
-
-
-
-
 

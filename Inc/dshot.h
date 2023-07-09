@@ -11,9 +11,6 @@
 #define INC_DSHOT_H_
 
 
-
-
-
 void computeDshotDMA(void);
 void make_dshot_package();
 

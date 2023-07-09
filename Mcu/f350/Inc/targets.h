@@ -11,15 +11,13 @@
 #define COM_TIMER          TIM3
 #define TIM1_AUTORELOAD    2999
 #define APPLICATION_ADDRESS 0x08001000
-#define MAIN_COMP	COMP1
+#define MAIN_COMP   COMP1
 #define EXTI_LINE   LL_EXTI_LINE_21
 //#define USE_SERIAL_TELEMETRY
 //#define USE_ADC
 #define MCU_GD32
 #define TARGET_VOLTAGE_DIVIDER  110
 #define SINE_DIVIDER 3
-
-
 
 
 #ifdef GD32TEST
@@ -58,5 +56,4 @@
 #define PHASE_C_COMP COMP_PA0
 
 #endif
-
 

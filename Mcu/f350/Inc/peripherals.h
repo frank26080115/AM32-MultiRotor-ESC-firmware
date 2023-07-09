@@ -9,7 +9,6 @@
 #define PERIPHERALS_H_
 
 
-
 #endif /* PERIPHERALS_H_ */
 
 #include "main.h"
