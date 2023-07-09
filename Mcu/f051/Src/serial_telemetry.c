@@ -74,8 +74,6 @@ void telem_UART_Init(void)
     /* (5) Enable DMA transfer complete/error interrupts  */
     LL_DMA_EnableIT_TC(DMA1, LL_DMA_CHANNEL_4);
     LL_DMA_EnableIT_TE(DMA1, LL_DMA_CHANNEL_4);
-
-
 }
 
 void send_telem_DMA()    // set data length and enable channel to start transfer
@@ -93,7 +91,6 @@ void send_telem_DMA()    // set data length and enable channel to start transfer
 #else
 void telem_UART_Init(void)
 {
-
     LL_USART_InitTypeDef USART_InitStruct = {0};
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -152,8 +149,6 @@ void telem_UART_Init(void)
     /* (5) Enable DMA transfer complete/error interrupts  */
     LL_DMA_EnableIT_TC(DMA1, LL_DMA_CHANNEL_2);
     LL_DMA_EnableIT_TE(DMA1, LL_DMA_CHANNEL_2);
-
-
 }
 
 void send_telem_DMA()    // set data length and enable channel to start transfer
@@ -198,7 +193,6 @@ uint8_t get_crc8(uint8_t *Buf, uint8_t BufLen)
 
 void makeTelemPackage(uint8_t temp, uint16_t voltage, uint16_t current, uint16_t consumption, uint16_t e_rpm)
 {
-
     aTxBuffer[0] = temp; // temperature
 
     aTxBuffer[1] = (voltage >> 8) & 0xFF; // voltage hB

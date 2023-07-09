@@ -60,6 +60,4 @@ void changeCompInput()
         EXTI->RTSR = 0x200000;
         //  hcomp1.Init.TriggerMode = COMP_TRIGGERMODE_IT_RISING;
     }
-
-
 }

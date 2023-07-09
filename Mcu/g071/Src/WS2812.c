@@ -48,7 +48,6 @@ void send_LED_RGB(uint8_t red, uint8_t green, uint8_t blue)
 
 void WS2812_Init(void)
 {
-
     /* USER CODE BEGIN TIM16_Init 0 */
     NVIC_SetPriority(DMA1_Ch4_7_DMAMUX1_OVR_IRQn, 3);
     NVIC_EnableIRQ(DMA1_Ch4_7_DMAMUX1_OVR_IRQn);

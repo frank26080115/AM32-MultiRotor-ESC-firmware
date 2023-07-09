@@ -14,7 +14,6 @@
 
 void initCorePeripherals(void)
 {
-
     LL_APB1_GRP2_EnableClock(LL_APB1_GRP2_PERIPH_SYSCFG);
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
     SystemClock_Config();
@@ -138,7 +137,6 @@ void SystemClock_Config(void)
 
 void MX_IWDG_Init(void)
 {
-
     LL_IWDG_Enable(IWDG);
     LL_IWDG_EnableWriteAccess(IWDG);
     LL_IWDG_SetPrescaler(IWDG, LL_IWDG_PRESCALER_8);
@@ -150,7 +148,6 @@ void MX_IWDG_Init(void)
 
     LL_IWDG_SetWindow(IWDG, 4095);
     LL_IWDG_ReloadCounter(IWDG);
-
 }
 
 
@@ -268,12 +265,10 @@ void MX_TIM1_Init(void)
     GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
     GPIO_InitStruct.Alternate = LL_GPIO_AF_2;
     LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 
 void MX_TIM3_Init(void)
 {
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
 
@@ -286,12 +281,10 @@ void MX_TIM3_Init(void)
     LL_TIM_SetClockSource(TIM3, LL_TIM_CLOCKSOURCE_INTERNAL);
     LL_TIM_SetTriggerOutput(TIM3, LL_TIM_TRGO_RESET);
     LL_TIM_DisableMasterSlaveMode(TIM3);
-
 }
 
 void MX_TIM14_Init(void)
 {
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
 
     /* Peripheral clock enable */
@@ -306,12 +299,10 @@ void MX_TIM14_Init(void)
     TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
     LL_TIM_Init(TIM14, &TIM_InitStruct);
     LL_TIM_DisableARRPreload(TIM14);
-
 }
 
 void MX_TIM17_Init(void)
 {
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
 
     /* Peripheral clock enable */
@@ -323,7 +314,6 @@ void MX_TIM17_Init(void)
     TIM_InitStruct.RepetitionCounter = 0;
     LL_TIM_Init(TIM17, &TIM_InitStruct);
     LL_TIM_EnableARRPreload(TIM17);
-
 }
 
 /**
@@ -331,7 +321,6 @@ void MX_TIM17_Init(void)
   */
 void MX_DMA_Init(void)
 {
-
     /* Init with LL driver */
     /* DMA controller clock enable */
     LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
@@ -343,13 +332,11 @@ void MX_DMA_Init(void)
     /* DMA1_Channel4_5_IRQn interrupt configuration */
     NVIC_SetPriority(IC_DMA_IRQ_NAME, 1);
     NVIC_EnableIRQ(IC_DMA_IRQ_NAME);
-
 }
 
 
 void TEN_KHZ_Timer_Init()
 {
-
 #ifdef USE_TIMER_16
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
@@ -379,8 +366,6 @@ void TEN_KHZ_Timer_Init()
 
 
 #endif
-
-
 }
 
 
@@ -464,8 +449,6 @@ void UN_TIM_Init(void)
     LL_TIM_IC_SetPrescaler(IC_TIMER_REGISTER, IC_TIMER_CHANNEL, LL_TIM_ICPSC_DIV1);
     LL_TIM_IC_SetFilter(IC_TIMER_REGISTER, IC_TIMER_CHANNEL, LL_TIM_IC_FILTER_FDIV1);
     LL_TIM_IC_SetPolarity(IC_TIMER_REGISTER, IC_TIMER_CHANNEL, LL_TIM_IC_POLARITY_BOTHEDGE);
-
-
 }
 
 void UN_GPIO_Init(void)
@@ -585,7 +568,6 @@ void UN_GPIO_Init(void)
     NVIC_EnableIRQ(EXTI_IRQ1_NAME);
     NVIC_SetPriority(EXTI_IRQ2_NAME, 0);
     NVIC_EnableIRQ(EXTI_IRQ2_NAME);
-
 }
 
 

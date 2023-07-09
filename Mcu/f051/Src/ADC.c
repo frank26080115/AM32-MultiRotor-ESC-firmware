@@ -20,7 +20,6 @@ extern uint16_t ADC_raw_input;
 
 void ADC_DMA_Callback()   // read dma buffer and set extern variables
 {
-
 #ifdef USE_ADC_INPUT
     ADC_raw_temp =    ADCDataDMA[3];
     ADC_raw_volts  = ADCDataDMA[1] / 2;
@@ -43,7 +42,6 @@ void ADC_DMA_Callback()   // read dma buffer and set extern variables
 
 void enableADC_DMA()     // enables channel
 {
-
     NVIC_SetPriority(DMA1_Channel1_IRQn, 3);
     NVIC_EnableIRQ(DMA1_Channel1_IRQn);
 
@@ -81,7 +79,6 @@ void enableADC_DMA()     // enables channel
 
 void activateADC()           // called right after enable regular conversions are started by software and DMA interrupt happens at end of transfer
 {
-
     __IO uint32_t wait_loop_index = 0;
 
 
@@ -115,7 +112,6 @@ void activateADC()           // called right after enable regular conversions ar
     {
 
     }
-
 }
 
 
@@ -200,5 +196,4 @@ void ADC_Init(void)
     LL_ADC_SetSamplingTimeCommonChannels(ADC1, LL_ADC_SAMPLINGTIME_71CYCLES_5);
     LL_ADC_DisableIT_EOC(ADC1);
     LL_ADC_DisableIT_EOS(ADC1);
-
 }

@@ -97,7 +97,6 @@ void maskPhaseInterrupts()
     LL_EXTI_ClearRisingFlag_0_31(LL_EXTI_LINE_17);
     LL_EXTI_ClearFallingFlag_0_31(LL_EXTI_LINE_17);
 #endif
-
 }
 
 void enableCompInterrupts()

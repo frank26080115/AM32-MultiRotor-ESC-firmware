@@ -60,8 +60,6 @@ void changeToOutput()
     IC_TIMER_REGISTER->ARR = 61;
     out_put = 1;
     LL_TIM_GenerateEvent_UPDATE(IC_TIMER_REGISTER);
-
-
 }
 
 void changeToInput()
@@ -103,7 +101,6 @@ void changeToInput()
 
 void sendDshotDma()
 {
-
     changeToOutput();
 #ifdef USE_TIMER_2_CHANNEL_1
     LL_DMA_ConfigAddresses(DMA1, INPUT_DMA_CHANNEL, (uint32_t)&gcr, (uint32_t)&IC_TIMER_REGISTER->CCR1,
@@ -145,13 +142,10 @@ void sendDshotDma()
     LL_TIM_CC_EnableChannel(IC_TIMER_REGISTER, IC_TIMER_CHANNEL);
     LL_TIM_EnableAllOutputs(IC_TIMER_REGISTER);
     LL_TIM_EnableCounter(IC_TIMER_REGISTER);
-
 }
 
 void receiveDshotDma()
 {
-
-
     changeToInput();
     IC_TIMER_REGISTER->CNT = 0;
 #ifdef USE_TIMER_2_CHANNEL_4
@@ -197,7 +191,6 @@ void receiveDshotDma()
     LL_TIM_CC_EnableChannel(IC_TIMER_REGISTER, IC_TIMER_CHANNEL);
     LL_TIM_EnableCounter(IC_TIMER_REGISTER);
     //   TIM16->PSC = 1;
-
 }
 
 
@@ -281,6 +274,5 @@ void detectInput()
         checkDshot();
         checkServo();
     }
-
 }
 

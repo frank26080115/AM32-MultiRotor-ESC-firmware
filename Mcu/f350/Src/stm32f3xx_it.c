@@ -301,7 +301,6 @@ void ADC1_COMP_IRQHandler(void)
   */
 void TIM6_DAC_IRQHandler(void)
 {
-
     /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
     //TIM6->DIER &= ~(0x1UL << (0U));
     if (LL_TIM_IsActiveFlag_UPDATE(TIM6) == 1)

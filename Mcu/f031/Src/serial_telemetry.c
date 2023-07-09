@@ -14,7 +14,6 @@ uint8_t nbDataToTransmit = sizeof(aTxBuffer);
 
 void telem_UART_Init(void)
 {
-
     LL_USART_InitTypeDef USART_InitStruct = {0};
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -79,8 +78,6 @@ void telem_UART_Init(void)
 
     NVIC_SetPriority(DMA1_Channel4_5_IRQn, 2);
     NVIC_EnableIRQ(DMA1_Channel4_5_IRQn);
-
-
 }
 
 void send_telem_DMA()    // set data length and enable channel to start transfer
@@ -124,7 +121,6 @@ uint8_t get_crc8(uint8_t *Buf, uint8_t BufLen)
 
 void makeTelemPackage(uint8_t temp, uint16_t voltage, uint16_t current, uint16_t consumption, uint16_t e_rpm)
 {
-
     aTxBuffer[0] = temp; // temperature
 
     aTxBuffer[1] = (voltage >> 8) & 0xFF; // voltage hB

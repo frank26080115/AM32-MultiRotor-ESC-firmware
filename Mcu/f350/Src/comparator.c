@@ -53,6 +53,4 @@ void changeCompInput()
         LL_EXTI_DisableFallingTrig_0_31(LL_EXTI_LINE_21);
 
     }
-
-
 }

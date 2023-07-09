@@ -65,8 +65,8 @@ void receiveDshotDma()
     LL_TIM_CC_EnableChannel(IC_TIMER_REGISTER, IC_TIMER_CHANNEL);
     LL_TIM_EnableCounter(IC_TIMER_REGISTER);
     //   TIM16->PSC = 1;
-
 }
+
 void changeToOutput()
 {
     LL_DMA_SetDataTransferDirection(DMA1, INPUT_DMA_CHANNEL, LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
@@ -108,7 +108,6 @@ void sendDshotDma()
     LL_TIM_CC_EnableChannel(IC_TIMER_REGISTER, IC_TIMER_CHANNEL);
     LL_TIM_EnableAllOutputs(IC_TIMER_REGISTER);
     LL_TIM_EnableCounter(IC_TIMER_REGISTER);
-
 }
 
 
@@ -194,6 +193,5 @@ void detectInput()
         checkDshot();
         checkServo();
     }
-
 }
 

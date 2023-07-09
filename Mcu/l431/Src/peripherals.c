@@ -21,7 +21,6 @@
 
 void initCorePeripherals(void)
 {
-
     LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_SYSCFG);
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
     LL_SYSCFG_EnablePinRemap(LL_SYSCFG_PIN_RMP_PA11);
@@ -49,12 +48,10 @@ void initCorePeripherals(void)
 #ifdef USE_LED_STRIP
     WS2812_Init();
 #endif
-
 }
 
 void initAfterJump()
 {
-
     SCB->VTOR = 0x08001000;
     __enable_irq();
 }
@@ -120,7 +117,6 @@ void SystemClock_Config(void)
 
 void MX_COMP1_Init(void)
 {
-
     /* USER CODE BEGIN COMP2_Init 0 */
 
     /* USER CODE END COMP2_Init 0 */
@@ -176,13 +172,11 @@ void MX_COMP1_Init(void)
     NVIC_EnableIRQ(ADC1_COMP_IRQn);
     //__NVIC_EnableIRQ;
     /* USER CODE END COMP2_Init 2 */
-
 }
 
 
 void MX_COMP2_Init(void)
 {
-
     /* USER CODE BEGIN COMP2_Init 0 */
 
     /* USER CODE END COMP2_Init 0 */
@@ -248,7 +242,6 @@ void MX_COMP2_Init(void)
     NVIC_EnableIRQ(ADC1_COMP_IRQn);
     //__NVIC_EnableIRQ;
     /* USER CODE END COMP2_Init 2 */
-
 }
 
 /**
@@ -258,7 +251,6 @@ void MX_COMP2_Init(void)
   */
 void MX_IWDG_Init(void)
 {
-
     /* USER CODE BEGIN IWDG_Init 0 */
 
     /* USER CODE END IWDG_Init 0 */
@@ -280,7 +272,6 @@ void MX_IWDG_Init(void)
     /* USER CODE BEGIN IWDG_Init 2 */
 
     /* USER CODE END IWDG_Init 2 */
-
 }
 
 /**
@@ -290,7 +281,6 @@ void MX_IWDG_Init(void)
   */
 void MX_TIM1_Init(void)
 {
-
     /* USER CODE BEGIN TIM1_Init 0 */
 
     /* USER CODE END TIM1_Init 0 */
@@ -451,7 +441,6 @@ void MX_TIM1_Init(void)
     GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
     GPIO_InitStruct.Alternate = LL_GPIO_AF_2;
     LL_GPIO_Init(PHASE_A_GPIO_PORT_HIGH, &GPIO_InitStruct);
-
 }
 
 /**
@@ -461,7 +450,6 @@ void MX_TIM1_Init(void)
   */
 void MX_TIM2_Init(void)
 {
-
     /* USER CODE BEGIN TIM2_Init 0 */
 
     /* USER CODE END TIM2_Init 0 */
@@ -486,7 +474,6 @@ void MX_TIM2_Init(void)
     /* USER CODE BEGIN TIM2_Init 2 */
 
     /* USER CODE END TIM2_Init 2 */
-
 }
 
 /**
@@ -496,7 +483,6 @@ void MX_TIM2_Init(void)
   */
 void MX_TIM3_Init(void)
 {
-
     /* USER CODE BEGIN TIM3_Init 0 */
 
     /* USER CODE END TIM3_Init 0 */
@@ -561,12 +547,10 @@ void MX_TIM3_Init(void)
     /* USER CODE BEGIN TIM3_Init 2 */
 
     /* USER CODE END TIM3_Init 2 */
-
 }
 
 void MX_TIM16_Init(void)
 {
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -625,7 +609,6 @@ void MX_TIM16_Init(void)
     /* USER CODE BEGIN TIM3_Init 2 */
 
     /* USER CODE END TIM3_Init 2 */
-
 }
 
 /**
@@ -635,7 +618,6 @@ void MX_TIM16_Init(void)
   */
 void MX_TIM14_Init(void)
 {
-
     /* USER CODE BEGIN TIM14_Init 0 */
 
     /* USER CODE END TIM14_Init 0 */
@@ -661,7 +643,6 @@ void MX_TIM14_Init(void)
     /* USER CODE BEGIN TIM14_Init 2 */
 
     /* USER CODE END TIM14_Init 2 */
-
 }
 
 
@@ -672,7 +653,6 @@ void MX_TIM14_Init(void)
   */
 void MX_TIM17_Init(void)
 {
-
     /* USER CODE BEGIN TIM17_Init 0 */
 
     /* USER CODE END TIM17_Init 0 */
@@ -695,7 +675,6 @@ void MX_TIM17_Init(void)
     /* USER CODE BEGIN TIM17_Init 2 */
 
     /* USER CODE END TIM17_Init 2 */
-
 }
 
 /**
@@ -703,7 +682,6 @@ void MX_TIM17_Init(void)
   */
 void MX_DMA_Init(void)
 {
-
     /* Init with LL driver */
     /* DMA controller clock enable */
     LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
@@ -715,12 +693,10 @@ void MX_DMA_Init(void)
     /* DMA1_Channel2_3_IRQn interrupt configuration */
     NVIC_SetPriority(DMA1_Channel2_3_IRQn, 1);
     NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
-
 }
 
 void MX_TIM6_Init(void)
 {
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
 
 
@@ -737,15 +713,12 @@ void MX_TIM6_Init(void)
     LL_TIM_DisableARRPreload(TIM6);
     LL_TIM_SetTriggerOutput(TIM6, LL_TIM_TRGO_RESET);
     LL_TIM_DisableMasterSlaveMode(TIM6);
-
-
 }
+
 void MX_GPIO_Init(void)
 {
-
     /* GPIO Ports Clock Enable */
     LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOA);
     LL_IOP_GRP1_EnableClock(LL_IOP_GRP1_PERIPH_GPIOB);
-
 }
 

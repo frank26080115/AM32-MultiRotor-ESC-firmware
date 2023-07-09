@@ -137,7 +137,6 @@ void SystemClock_Config(void)
 
 void MX_COMP1_Init(void)
 {
-
 //LL_COMP_InitTypeDef COMP_InitStruct = {0};
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -167,13 +166,11 @@ void MX_COMP1_Init(void)
     // COMP_InitStruct.OutputSelection = LL_COMP_OUTPUT_NONE;
     // COMP_InitStruct.OutputPolarity = LL_COMP_OUTPUTPOL_NONINVERTED;
     // LL_COMP_Init(COMP1, &COMP_InitStruct);
-
 }
 
 
 void MX_IWDG_Init(void)
 {
-
     IWDG->KR = 0x0000CCCCU;
     IWDG->KR = 0x00005555U;
     IWDG->PR = LL_IWDG_PRESCALER_16;
@@ -184,8 +181,6 @@ void MX_IWDG_Init(void)
 
 void MX_TIM1_Init(void)
 {
-
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
     LL_TIM_OC_InitTypeDef TIM_OC_InitStruct = {0};
     LL_TIM_BDTR_InitTypeDef TIM_BDTRInitStruct = {0};
@@ -324,7 +319,6 @@ void MX_TIM1_Init(void)
 
     NVIC_SetPriority(TIM1_BRK_UP_TRG_COM_IRQn, 2);
     NVIC_EnableIRQ(TIM1_BRK_UP_TRG_COM_IRQn);
-
 }
 
 
@@ -338,14 +332,12 @@ void MX_TIM2_Init(void)
 
 void MX_TIM6_Init(void)
 {
-
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM6);
 
     NVIC_SetPriority(TIM6_DAC_IRQn, 2);
     NVIC_EnableIRQ(TIM6_DAC_IRQn);
     TIM6->PSC = 47;
     TIM6->ARR = 100;
-
 }
 
 
@@ -357,7 +349,6 @@ void MX_TIM14_Init(void)
     NVIC_SetPriority(TIM14_IRQn, 0);
     NVIC_EnableIRQ(TIM14_IRQn);
     LL_TIM_EnableARRPreload(TIM14);
-
 }
 
 
@@ -391,7 +382,6 @@ void MX_DMA_Init(void)
     /* DMA1_Channel4_5_IRQn interrupt configuration */
     NVIC_SetPriority(DMA1_Channel4_5_IRQn, 1);
     NVIC_EnableIRQ(DMA1_Channel4_5_IRQn);
-
 }
 
 void MX_GPIO_Init(void)
@@ -464,7 +454,6 @@ void UN_TIM_Init(void)
 
     IC_TIMER_REGISTER->PSC = 0;
     IC_TIMER_REGISTER->ARR = 63;
-
 }
 
 #ifdef USE_RGB_LED              // has 3 color led
@@ -499,7 +488,6 @@ void LED_GPIO_init()
     GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
     GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
     LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
 }
 
 #endif

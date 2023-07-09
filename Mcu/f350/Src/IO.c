@@ -23,7 +23,6 @@ int dshot_runout_timer = 62500;
 
 void changeToOutput()
 {
-
     LL_DMA_SetDataTransferDirection(DMA1, INPUT_DMA_CHANNEL, LL_DMA_DIRECTION_MEMORY_TO_PERIPH);
 
 #ifdef USE_TIMER_2_CHANNEL_3
@@ -83,11 +82,10 @@ void changeToInput()
     IC_TIMER_REGISTER->ARR = 0xFFFF;
     LL_TIM_GenerateEvent_UPDATE(IC_TIMER_REGISTER);
     out_put = 0;
-
 }
+
 void receiveDshotDma()
 {
-
     changeToInput();
     IC_TIMER_REGISTER->CNT = 0;
 #ifdef USE_TIMER_2_CHANNEL_4
@@ -121,13 +119,10 @@ void receiveDshotDma()
     LL_TIM_CC_EnableChannel(IC_TIMER_REGISTER, IC_TIMER_CHANNEL);
     LL_TIM_EnableCounter(IC_TIMER_REGISTER);
     //   TIM16->PSC = 1;
-
 }
 
 void sendDshotDma()
 {
-
-
     changeToOutput();
 
 
@@ -221,7 +216,6 @@ void detectInput()
 
         inputSet = 1;
     }
-
 }
 
 

@@ -228,7 +228,6 @@ void DMA1_Channel2_3_IRQHandler(void)
         /* Call Error function */
         // USART_TransferError_Callback();
     }
-
 }
 
 /**
@@ -279,8 +278,6 @@ void ADC1_COMP_IRQHandler(void)
   */
 void TIM3_IRQHandler(void)
 {
-
-
     /* USER CODE BEGIN TIM3_IRQn 0 */
     if (LL_TIM_IsActiveFlag_CC1(TIM3) == 1)
     {
@@ -303,8 +300,6 @@ void TIM3_IRQHandler(void)
 
 void TIM16_IRQHandler(void)
 {
-
-
     /* USER CODE BEGIN TIM3_IRQn 0 */
     if (LL_TIM_IsActiveFlag_CC1(TIM16) == 1)
     {
@@ -365,8 +360,6 @@ void TIM14_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 void DMA1_Ch4_7_DMAMUX1_OVR_IRQHandler(void)
 {
-
-
     /* USER CODE BEGIN DMA1_Ch4_7_DMAMUX1_OVR_IRQn 0 */
     if (LL_DMA_IsActiveFlag_HT6(DMA1))
     {

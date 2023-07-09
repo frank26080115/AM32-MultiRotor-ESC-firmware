@@ -37,7 +37,6 @@ void initCorePeripherals()
 
 void initAfterJump()
 {
-
     SCB->VTOR = 0x08001000;
 
     __enable_irq();
@@ -99,7 +98,6 @@ void SystemClock_Config(void)
 
 void MX_COMP1_Init(void)
 {
-
     LL_COMP_InitTypeDef COMP_InitStruct = {0};
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -122,13 +120,11 @@ void MX_COMP1_Init(void)
     COMP_InitStruct.OutputPolarity = LL_COMP_OUTPUTPOL_NONINVERTED;
 // COMP_InitStruct.OutputBlankingSource = LL_COMP_BLANKINGSRC_NONE;
     LL_COMP_Init(COMP1, &COMP_InitStruct);
-
 }
 
 
 void MX_IWDG_Init(void)
 {
-
     LL_IWDG_Enable(IWDG);
     LL_IWDG_EnableWriteAccess(IWDG);
     LL_IWDG_SetPrescaler(IWDG, LL_IWDG_PRESCALER_16);
@@ -140,12 +136,10 @@ void MX_IWDG_Init(void)
 
     LL_IWDG_SetWindow(IWDG, 4095);
     LL_IWDG_ReloadCounter(IWDG);
-
-
 }
+
 void MX_TIM1_Init(void)
 {
-
     /* USER CODE BEGIN TIM1_Init 0 */
 
     /* USER CODE END TIM1_Init 0 */
@@ -237,13 +231,11 @@ void MX_TIM1_Init(void)
     GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
     GPIO_InitStruct.Alternate = LL_GPIO_AF_2;
     LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
 }
 
 
 void MX_TIM2_Init(void)
 {
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
 
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM2);
@@ -256,13 +248,11 @@ void MX_TIM2_Init(void)
     LL_TIM_SetClockSource(TIM2, LL_TIM_CLOCKSOURCE_INTERNAL);
     LL_TIM_SetTriggerOutput(TIM2, LL_TIM_TRGO_RESET);
     LL_TIM_DisableMasterSlaveMode(TIM2);
-
 }
 
 
 void MX_TIM6_Init(void)
 {
-
     LL_TIM_InitTypeDef TIM_InitStruct = {0};
     LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM6);
 
@@ -276,8 +266,6 @@ void MX_TIM6_Init(void)
     TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
     LL_TIM_DisableARRPreload(TIM6);
     LL_TIM_DisableMasterSlaveMode(TIM6);
-
-
 }
 
 
@@ -295,7 +283,6 @@ void MX_TIM3_Init(void)
     TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
     LL_TIM_Init(TIM3, &TIM_InitStruct);
     LL_TIM_EnableARRPreload(TIM3);
-
 }
 
 
@@ -332,7 +319,6 @@ void MX_TIM17_Init(void)
 
 void MX_DMA_Init(void)
 {
-
     /* Init with LL driver */
     /* DMA controller clock enable */
     LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_DMA1);
@@ -343,7 +329,6 @@ void MX_DMA_Init(void)
     /* DMA1_Channel4_5_IRQn interrupt configuration */
     NVIC_SetPriority(DMA1_Channel4_5_IRQn, 1);
     NVIC_EnableIRQ(DMA1_Channel4_5_IRQn);
-
 }
 
 void MX_GPIO_Init(void)
@@ -364,7 +349,6 @@ void MX_GPIO_Init(void)
     GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
     GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
     LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 
 

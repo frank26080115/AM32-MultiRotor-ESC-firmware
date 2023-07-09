@@ -299,7 +299,6 @@ void DMA1_Channel4_5_IRQHandler(void)
   */
 void TIM2_IRQHandler(void)
 {
-
     if (LL_TIM_IsActiveFlag_CC4(TIM2) == 1)
     {
 
@@ -318,8 +317,6 @@ void TIM2_IRQHandler(void)
 
         LL_TIM_ClearFlag_CC1(TIM2);
     }
-
-
 }
 
 /**
@@ -345,7 +342,6 @@ void TIM14_IRQHandler(void)
   */
 void TIM16_IRQHandler(void)
 {
-
 #ifdef USE_TIM_16
 
     if (LL_TIM_IsActiveFlag_CC1(TIM16) == 1)
@@ -372,8 +368,6 @@ void TIM16_IRQHandler(void)
     }
 
 #endif
-
-
 }
 
 //void EXTI0_1_IRQHandler(void){
@@ -400,7 +394,6 @@ void EXTI4_15_IRQHandler(void)
 
         interruptRoutine();
     }
-
 }
 
 
@@ -456,7 +449,6 @@ void DMA1_Channel1_IRQHandler(void)
     {
         LL_DMA_ClearFlag_GI1(DMA1);
     }
-
 }
 
 
