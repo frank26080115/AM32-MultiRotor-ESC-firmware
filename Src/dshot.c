@@ -366,5 +366,4 @@ void make_dshot_package()
 
     gcr[7] = 0;
 #endif
-
 }

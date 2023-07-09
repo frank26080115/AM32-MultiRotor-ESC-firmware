@@ -585,7 +585,6 @@ void checkForHighSignal()
 
 float doPidCalculations(struct fastPID *pidnow, int actual, int target)
 {
-
     pidnow->error = actual - target;
     pidnow->integral = pidnow->integral + pidnow->error * pidnow->Ki + pidnow->last_error * pidnow->Ki;
 
@@ -616,7 +615,6 @@ float doPidCalculations(struct fastPID *pidnow, int actual, int target)
     }
 
     return pidnow->pid_output;
-
 }
 
 
@@ -899,8 +897,6 @@ void loadEEpromSettings()
     {
         bi_direction = 0;
     }
-
-
 }
 
 void saveEEpromSettings()
@@ -1110,7 +1106,6 @@ void commutate()
 
 void PeriodElapsedCallback()
 {
-
     COM_TIMER->DIER &= ~((0x1UL << (0U)));             // disable interrupt
     commutation_interval = (( 3 * commutation_interval) + thiszctime) >> 2;
     commutate();
@@ -1126,7 +1121,6 @@ void PeriodElapsedCallback()
     {
         zero_crosses++;
     }
-
 }
 
 
@@ -1817,7 +1811,6 @@ void zcfoundroutine()    // only used in polling mode, blocking routine.
             enableCompInterrupts();          // enable interrupt
         }
     }
-
 }
 
 

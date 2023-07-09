@@ -21,7 +21,6 @@ long map(long x, long in_min, long in_max, long out_min, long out_max)
     }
 
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-
 }
 
 
@@ -44,7 +43,7 @@ void delayMicros(uint32_t micros)
 
     while (UTILITY_TIMER->CNT < micros)
     {
-
+        // do nothing, wait
     }
 }
 
