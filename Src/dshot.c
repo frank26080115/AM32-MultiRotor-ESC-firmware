@@ -89,8 +89,8 @@ void computeDshotDMA()
 
 #endif
 
-        uint8_t calcCRC = ((dpulse[0] ^ dpulse[4] ^ dpulse[8]) << 3
-                           | (dpulse[1] ^ dpulse[5] ^ dpulse[9]) << 2
+        uint8_t calcCRC = (  (dpulse[0] ^ dpulse[4] ^ dpulse[ 8]) << 3
+                           | (dpulse[1] ^ dpulse[5] ^ dpulse[ 9]) << 2
                            | (dpulse[2] ^ dpulse[6] ^ dpulse[10]) << 1
                            | (dpulse[3] ^ dpulse[7] ^ dpulse[11])
                           );
@@ -117,10 +117,9 @@ void computeDshotDMA()
             checkCRC = ~checkCRC + 16;
         }
 
-        int tocheck = (
-                          dpulse[0] << 10 | dpulse[1] << 9 | dpulse[2] << 8 | dpulse[3] << 7
-                          | dpulse[4] << 6 | dpulse[5] << 5 | dpulse[6] << 4 | dpulse[7] << 3
-                          | dpulse[8] << 2 | dpulse[9] << 1 | dpulse[10]);
+        int tocheck = (  dpulse[0] << 10 | dpulse[1] << 9 | dpulse[ 2] << 8 | dpulse[3] << 7
+                       | dpulse[4] <<  6 | dpulse[5] << 5 | dpulse[ 6] << 4 | dpulse[7] << 3
+                       | dpulse[8] <<  2 | dpulse[9] << 1 | dpulse[10]);
 
         if (calcCRC == checkCRC)
         {
@@ -249,7 +248,6 @@ void computeDshotDMA()
                         case 21:
                             forward = dir_reversed;
                             break;
-
                     }
 
                     last_dshot_command = dshotcommand;
@@ -261,7 +259,6 @@ void computeDshotDMA()
         {
             dshot_badcounts++;
         }
-
     }
 }
 
@@ -301,7 +298,7 @@ void make_dshot_package()
     }
 
     //calculate checksum
-    uint16_t  csum = 0;
+    uint16_t csum = 0;
     uint16_t csum_data = dshot_full_number;
 
     for (int i = 0; i < 3; i++)

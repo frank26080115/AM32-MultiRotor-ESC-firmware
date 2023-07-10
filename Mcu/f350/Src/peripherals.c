@@ -30,7 +30,7 @@ void initCorePeripherals()
     MX_TIM3_Init();
     MX_TIM6_Init();
     MX_TIM17_Init();
-// telem_UART_Init();
+    // telem_UART_Init();
     UN_TIM_Init();
 }
 

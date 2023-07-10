@@ -40,8 +40,7 @@ void initAfterJump(void)
 
     for (vector_index  = 0; vector_index  < 48; vector_index++)
     {
-        VectorTable[vector_index ] = *(__IO uint32_t *)(APPLICATION_ADDRESS + (vector_index <<
-                                     2));       // no VTOR on cortex-MO so need to copy vector table
+        VectorTable[vector_index ] = *(__IO uint32_t *)(APPLICATION_ADDRESS + (vector_index << 2)); // no VTOR on cortex-MO so need to copy vector table
     }
 
     /* Enable the SYSCFG peripheral clock*/
@@ -80,7 +79,7 @@ void SystemClock_Config(void)
 
     if (LL_FLASH_GetLatency() != LL_FLASH_LATENCY_1)
     {
-// Error_Handler();
+        // Error_Handler();
     }
 
     LL_RCC_HSI_Enable();
@@ -137,7 +136,7 @@ void SystemClock_Config(void)
 
 void MX_COMP1_Init(void)
 {
-//LL_COMP_InitTypeDef COMP_InitStruct = {0};
+    // LL_COMP_InitTypeDef COMP_InitStruct = {0};
 
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -255,7 +254,7 @@ void MX_TIM1_Init(void)
     PB1   ------> TIM1_CH3N
     PA8   ------> TIM1_CH1
     PA9   ------> TIM1_CH2
-    PA10   ------> TIM1_CH3
+    PA10  ------> TIM1_CH3
     */
 #ifdef USE_OPEN_DRAIN_LOW
 #pragma message ("using open drain low side")
