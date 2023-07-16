@@ -164,6 +164,8 @@
        -fix low voltage cuttoff timeout
 *1.94  - Add selectable input types
 *1.95  - reduce timeout to 0.5 seconds when armed
+*1.96  - add LED blinks
+       - special build to remove "arming", always armed if "double tap reverse" is enabled in EEPROM
 */
 
 #include <stdint.h>
@@ -184,7 +186,7 @@
 #include "common.h"
 
 #define VERSION_MAJOR 1
-#define VERSION_MINOR 95
+#define VERSION_MINOR 96
 
 //firmware build options !! fixed speed and duty cycle modes are not to be used with sinusoidal startup !!
 
@@ -689,7 +691,9 @@ void loadEEpromSettings(){
 
 		   low_cell_volt_cutoff = eepromBuffer[37] + 250; // 2.5 to 3.5 volts per cell range
 		   if(eepromBuffer[38] == 0x01){
-			   RC_CAR_REVERSE = 1;
+			   //RC_CAR_REVERSE = 1;
+			   RC_CAR_REVERSE = 0;
+			   armed = 1;
 		   }else{
 			   RC_CAR_REVERSE = 0;
 		   }
@@ -1254,6 +1258,7 @@ if(desync_check && zero_crosses > 10){
 		if((getAbsDif(last_average_interval,average_interval) > average_interval>>1) && (average_interval < 2000)){ //throttle resitricted before zc 20.
 		zero_crosses = 0;
 		desync_happened ++;
+		led_sig_desync();
 running = 0;
 old_routine = 1;
 if(zero_crosses > 100){
