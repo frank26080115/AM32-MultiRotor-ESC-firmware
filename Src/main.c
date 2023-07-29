@@ -270,6 +270,8 @@ char stuck_rotor_protection = 1;	// Turn off for Crawlers
 char brake_on_stop = 0;
 char stall_protection = 0;
 char use_sin_start = 0;
+char can_sin_start = 1;
+char sine_dyn_off = 0;
 char TLM_ON_INTERVAL = 0;
 uint8_t telemetry_interval_ms = 30;
 uint8_t TEMPERATURE_LIMIT = 255;  // degrees 255 to disable
@@ -365,7 +367,9 @@ char reversing_dead_band = 1;
 
 uint16_t low_pin_count = 0;
 
-uint8_t max_duty_cycle_change = 2;
+uint8_t max_duty_cycle_change_up   = 2;
+uint8_t max_duty_cycle_change_down = RAMP_SPEED_LOW_RPM;
+uint8_t max_duty_cycle_change_multi = 1;
 char fast_accel = 1;
 uint16_t last_duty_cycle = 0;
 char play_tone_flag = 0;
@@ -682,9 +686,7 @@ void loadEEpromSettings(){
 
 		   low_cell_volt_cutoff = eepromBuffer[37] + 250; // 2.5 to 3.5 volts per cell range
 		   if(eepromBuffer[38] == 0x01){
-			   //RC_CAR_REVERSE = 1;
-			   RC_CAR_REVERSE = 0;
-			   armed = 1;
+			   RC_CAR_REVERSE = 1;
 		   }else{
 			   RC_CAR_REVERSE = 0;
 		   }
@@ -773,7 +775,39 @@ void loadEEpromSettings(){
 		bi_direction = 0;
 	}
 
+    // ramp speed settings
+    if (eepromBuffer[1] >= 3)
+    {
+        if (eepromBuffer[0x40] >= 1 && eepromBuffer[0x40] < 0xFF) {
+            max_duty_cycle_change_up = eepromBuffer[0x40];
+            if (eepromBuffer[0x41] >= 1 && eepromBuffer[0x41] < 0xFF) {
+                max_duty_cycle_change_down = eepromBuffer[0x41];
+            }
+        }
 
+        if(eepromBuffer[0x43] == 0x01){
+            armed = 1;
+        }
+
+        if(eepromBuffer[0x42] == 0x01) {
+            sine_dyn_off = 1;
+        }
+        else {
+            sine_dyn_off = 0;
+        }
+    }
+    else
+    {
+        sine_dyn_off = eepromBuffer[39]; // USE_HALL_SENSOR
+        if(eepromBuffer[36] == 0x01){ // low voltage cutoff checkbox
+            LOW_VOLTAGE_CUTOFF = 0;
+            TEMPERATURE_LIMIT = 255;
+            max_duty_cycle_change_up = eepromBuffer[37]; // low voltage cutoff
+            max_duty_cycle_change_up = (max_duty_cycle_change_up < 1) ? 1 : (max_duty_cycle_change_up > 20 ? 20 : max_duty_cycle_change_up);
+            max_duty_cycle_change_down = eepromBuffer[43] - 70; // temperature
+            max_duty_cycle_change_down = (max_duty_cycle_change_down < 1) ? 1 : (max_duty_cycle_change_down > 20 ? 20 : max_duty_cycle_change_down);
+        }
+    }
 
 }
 
@@ -1071,7 +1105,7 @@ if(!armed && (cell_count == 0)){
 			  led_set_running();
 
 		  }
-	  if(use_sin_start){
+	  if(use_sin_start && can_sin_start){
 		duty_cycle = map(input, 137, 2047, minimum_duty_cycle, TIMER1_MAX_ARR);
   	  }else{
 	 	 duty_cycle = map(input, 47, 2047, minimum_duty_cycle, TIMER1_MAX_ARR);
@@ -1156,7 +1190,7 @@ if(!armed && (cell_count == 0)){
 			  zero_crosses = 0;
 			  bad_count = 0;
 			  	  if(brake_on_stop){
-			  		  if(!use_sin_start){
+			  		  if(use_sin_start == 0 || can_sin_start == 0){
 #ifndef PWM_ENABLE_BRIDGE				
 			  			  duty_cycle = (TIMER1_MAX_ARR-19) + drag_brake_strength*2;
 			  			  proportionalBrake();
@@ -1184,7 +1218,7 @@ if(!armed && (cell_count == 0)){
 		  	 phase_C_position -= 360;
 		  	 }
 
-		 	  if(use_sin_start == 1){
+		 	  if(use_sin_start != 0 && can_sin_start != 0){
 		    	 stepper_sine = 1;
 		 	  }
 		  }
@@ -1224,22 +1258,22 @@ if(!prop_brake_active){
 			}
 #else
 			if(average_interval > 300){
-				max_duty_cycle_change = RAMP_SPEED_LOW_RPM;
+				max_duty_cycle_change_multi = 1;
 			}else{
-				max_duty_cycle_change = RAMP_SPEED_LOW_RPM * 3;
+				max_duty_cycle_change_multi = 3;
 			}
-#endif				
+#endif
 
-	 if ((duty_cycle - last_duty_cycle) > max_duty_cycle_change){
-		duty_cycle = last_duty_cycle + max_duty_cycle_change;
+	 if ((duty_cycle - last_duty_cycle) > (max_duty_cycle_change_up * max_duty_cycle_change_multi)){
+		duty_cycle = last_duty_cycle + (max_duty_cycle_change_up * max_duty_cycle_change_multi);
 		if(commutation_interval > 500){
 			fast_accel = 1;
 		}else{
 			fast_accel = 0;
 		}
 
-	}else if ((last_duty_cycle - duty_cycle) > max_duty_cycle_change){
-		duty_cycle = last_duty_cycle - max_duty_cycle_change;
+	}else if ((last_duty_cycle - duty_cycle) > (max_duty_cycle_change_down * max_duty_cycle_change_multi)){
+		duty_cycle = last_duty_cycle - (max_duty_cycle_change_down * max_duty_cycle_change_multi);
 		fast_accel = 0;
 	}else{
 		fast_accel = 0;
@@ -1566,7 +1600,7 @@ loadEEpromSettings();
   }
 
   if(use_sin_start){
-  min_startup_duty = sin_mode_min_s_d;
+    min_startup_duty = sin_mode_min_s_d;
   }
 	if (dir_reversed == 1){
 			forward = 0;
@@ -1863,7 +1897,8 @@ if(newinput > 2000){
 	 	 if(zero_crosses > 100 && adjusted_input < 200){
 	 		bemf_timeout_happened = 0;
 	 	 }
-	 	 if(use_sin_start && adjusted_input < 160){
+
+	 	 if((use_sin_start && can_sin_start) && adjusted_input < 160){
 	 		bemf_timeout_happened = 0;
 	 	 }
 
@@ -1890,7 +1925,37 @@ if(newinput > 2000){
 #ifdef FIXED_DUTY_MODE
   			input = FIXED_DUTY_MODE_POWER * 20 + 47;
 #else
-	  	  	if(use_sin_start){
+
+            if (use_sin_start && sine_dyn_off)
+            {
+                static int16_t prev_adj_input = 0;
+                if (dshot) {
+                    can_sin_start = (adjusted_input >= prev_adj_input) ? 1 : 0;
+                    prev_adj_input = adjusted_input;
+                }
+                else {
+                    if (can_sin_start) {
+                        if (adjusted_input < (prev_adj_input - 16)) {
+                            can_sin_start = 0;
+                            prev_adj_input = adjusted_input;
+                        }
+                        else if (adjusted_input > prev_adj_input) {
+                            prev_adj_input = adjusted_input;
+                        }
+                    }
+                    else {
+                        if (adjusted_input > (prev_adj_input + 16)) {
+                            can_sin_start = 1;
+                            prev_adj_input = adjusted_input;
+                        }
+                        else if (adjusted_input < prev_adj_input) {
+                            prev_adj_input = adjusted_input;
+                        }
+                    }
+                }
+            }
+
+	  	  	if(use_sin_start && can_sin_start){
   				if(adjusted_input < 30){           // dead band ?
   					input= 0;
   					}

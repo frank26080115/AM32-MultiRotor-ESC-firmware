@@ -1,1 +1,5 @@
-make clean -s MCU_TYPE=F051 TARGET=ARIA70A_F051 binary
+make clean
+
+make -s MCU_TYPE=F051 TARGET=ARIA70A_F051 binary
+
+make -s MCU_TYPE=F051 TARGET=FLASHHOBBY_F051 binary
