@@ -783,6 +783,8 @@ void loadEEpromSettings(){
             if (eepromBuffer[0x41] >= 1 && eepromBuffer[0x41] < 0xFF) {
                 max_duty_cycle_change_down = eepromBuffer[0x41];
             }
+            max_duty_cycle_change_up   = (max_duty_cycle_change_up   < 1) ? 1 : (max_duty_cycle_change_up   > 20 ? 20 : max_duty_cycle_change_up);
+            max_duty_cycle_change_down = (max_duty_cycle_change_down < 1) ? 1 : (max_duty_cycle_change_down > 20 ? 20 : max_duty_cycle_change_down);
         }
 
         if(eepromBuffer[0x43] == 0x01){
@@ -802,9 +804,9 @@ void loadEEpromSettings(){
         if(eepromBuffer[36] == 0x01){ // low voltage cutoff checkbox
             LOW_VOLTAGE_CUTOFF = 0;
             TEMPERATURE_LIMIT = 255;
-            max_duty_cycle_change_up = eepromBuffer[37]; // low voltage cutoff
-            max_duty_cycle_change_up = (max_duty_cycle_change_up < 1) ? 1 : (max_duty_cycle_change_up > 20 ? 20 : max_duty_cycle_change_up);
+            max_duty_cycle_change_up   = eepromBuffer[37]; // low voltage cutoff
             max_duty_cycle_change_down = eepromBuffer[43] - 70; // temperature
+            max_duty_cycle_change_up   = (max_duty_cycle_change_up   < 1) ? 1 : (max_duty_cycle_change_up   > 20 ? 20 : max_duty_cycle_change_up);
             max_duty_cycle_change_down = (max_duty_cycle_change_down < 1) ? 1 : (max_duty_cycle_change_down > 20 ? 20 : max_duty_cycle_change_down);
         }
     }
@@ -1118,7 +1120,6 @@ if(!armed && (cell_count == 0)){
 			}
 			if(use_current_limit_adjust > duty_cycle){
 				use_current_limit_adjust = duty_cycle;
-				led_sig_currentlimited();
 			}
 
 	  }
@@ -1240,6 +1241,7 @@ if(!prop_brake_active){
 	 if(use_current_limit){
 		 if (duty_cycle > use_current_limit_adjust){
 			 duty_cycle = use_current_limit_adjust;
+			led_sig_currentlimited();
 		 }
 	 }
 
@@ -1501,6 +1503,7 @@ void runBrushedLoop(){
 
 		 if (brushed_duty_cycle > use_current_limit_adjust){
 				 brushed_duty_cycle = use_current_limit_adjust;
+				 led_sig_currentlimited();
 			 }
 	  }
 if((brushed_duty_cycle > 0) && armed){
@@ -1509,7 +1512,7 @@ if((brushed_duty_cycle > 0) && armed){
 		TIM1->CCR3 = brushed_duty_cycle;
 		
 	}else{
-		TIM1->CCR1 = 0;												//
+		TIM1->CCR1 = 0;
 		TIM1->CCR2 = 0;
 		TIM1->CCR3 = 0;
 		brushed_direction_set = 0;
