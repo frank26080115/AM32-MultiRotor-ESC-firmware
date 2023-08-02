@@ -203,6 +203,44 @@
 #define USE_SERIAL_TELEMETRY
 #endif
 
+#ifdef ARIA70A_F051
+#define FILE_NAME				"ARIA70A_F051"
+#define FIRMWARE_NAME           "Aria 70A"
+#define DEAD_TIME               45
+#define HARDWARE_GROUP_F0_A
+//#define USE_SERIAL_TELEMETRY
+#define PA6_VOLTAGE
+#define MILLIVOLT_PER_AMP       17
+#define CURRENT_OFFSET          0
+#define CURRENT_ADC_PIN         LL_GPIO_PIN_3
+#define CURRENT_ADC_CHANNEL     LL_ADC_CHANNEL_3
+//#define USE_RGB_LED
+
+#define RGBLED_RED_GPIOx        GPIOA
+#define RGBLED_RED_PIN          LL_GPIO_PIN_15
+#define RGBLED_GREEN_GPIOx      GPIOB
+#define RGBLED_GREEN_PIN        LL_GPIO_PIN_3
+#define RGBLED_BLUE_GPIOx       GPIOB
+#define RGBLED_BLUE_PIN         LL_GPIO_PIN_4
+#define LED_IS_OPENDRAIN        true
+
+#endif
+
+#ifdef FLASHHOBBY_F051
+#define FILE_NAME				"FLASHHOBBY_F051"
+#define FIRMWARE_NAME           "FLASHHOBBY  "
+#define DEAD_TIME               30
+#define TARGET_VOLTAGE_DIVIDER  110
+#define MILLIVOLT_PER_AMP       20
+#define CURRENT_OFFSET          1010   // millivolts
+#define HARDWARE_GROUP_F0_A
+#define USE_SERIAL_TELEMETRY
+#define VOLTAGE_ADC_PIN     LL_GPIO_PIN_3
+#define VOLTAGE_ADC_CHANNEL LL_ADC_CHANNEL_3
+#define CURRENT_ADC_PIN     LL_GPIO_PIN_6
+#define CURRENT_ADC_CHANNEL  LL_ADC_CHANNEL_6
+#endif
+
 #ifdef SKYSTARS_F051
 #define FILE_NAME				"SKYSTARS_F051"
 #define FIRMWARE_NAME           "SkyStars K55"

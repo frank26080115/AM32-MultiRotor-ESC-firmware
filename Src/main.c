@@ -515,7 +515,7 @@ uint8_t bad_count_threshold = CPU_FREQUENCY_MHZ / 24 ;
 uint8_t dshotcommand;
 uint16_t armed_count_threshold = 1000;
 
-char armed = 0;
+char armed = 1;
 uint16_t zero_input_count = 0;
 
 uint16_t input = 0;
