@@ -247,6 +247,7 @@
 #endif
 
 #ifdef ARIA70A_F051
+
 #define FILE_NAME				"ARIA70A_F051"
 #define FIRMWARE_NAME           "Aria 70A"
 #define DEAD_TIME               45
@@ -255,6 +256,10 @@
 #define PA6_VOLTAGE
 #define MILLIVOLT_PER_AMP       17
 #define CURRENT_OFFSET          0
+#define CURRENT_ADC_PIN         LL_GPIO_PIN_3
+#define CURRENT_ADC_CHANNEL     LL_ADC_CHANNEL_3
+#define VOLTAGE_ADC_PIN         LL_GPIO_PIN_6
+#define VOLTAGE_ADC_CHANNEL     LL_ADC_CHANNEL_6
 #define USE_RGB_LED
 
 #define RGBLED_RED_GPIOx        GPIOA

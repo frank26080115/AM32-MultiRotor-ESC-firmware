@@ -14,8 +14,15 @@
 #include "WS2812.h"
 #endif
 
-static inline void led_init_gpio(GPIO_TypeDef *GPIOx, uint32_t Pin, bool opendrain)
+static inline void led_init_gpio(
+    #if defined(MCU_F051) || defined(MCU_F031) || defined(MCU_F415) || defined(MCU_F421) || defined(MCU_G071)
+    GPIO_TypeDef *
+    #elif defined(GD32E230)
+    uint32_t
+    #endif
+    GPIOx, uint32_t Pin, bool opendrain)
 {
+    #if defined(MCU_F051) || defined(MCU_F031) || defined(MCU_F415) || defined(MCU_F421) || defined(MCU_G071)
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
     #if defined(GPIOA)
@@ -93,15 +100,39 @@ static inline void led_init_gpio(GPIO_TypeDef *GPIOx, uint32_t Pin, bool opendra
     else {
         LL_GPIO_ResetOutputPin(GPIOx, Pin);
     }
-}
-
-static inline void led_set(GPIO_TypeDef *GPIOx, uint32_t Pin, bool ison, bool opendrain)
-{
-    if ((ison && opendrain) || (!ison && !opendrain)) {
-        LL_GPIO_ResetOutputPin(GPIOx, Pin);
+    #elif defined(GD32E230)
+    gpio_mode_set(GPIOx, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, Pin);
+    gpio_output_options_set(GPIOx, GPIO_OTYPE_PP, GPIO_OSPEED_50MHZ, Pin);
+    if (opendrain) {
+        gpio_bit_set(GPIOx, Pin);
     }
     else {
+        gpio_bit_reset(GPIOx, Pin);
+    }
+    #endif
+}
+
+static inline void led_set(
+    #if defined(MCU_F051) || defined(MCU_F031) || defined(MCU_F415) || defined(MCU_F421) || defined(MCU_G071)
+    GPIO_TypeDef *
+    #elif defined(GD32E230)
+    uint32_t
+    #endif
+    GPIOx, uint32_t Pin, bool ison, bool opendrain)
+{
+    if ((ison && opendrain) || (!ison && !opendrain)) {
+        #if defined(MCU_F051) || defined(MCU_F031) || defined(MCU_F415) || defined(MCU_F421) || defined(MCU_G071)
+        LL_GPIO_ResetOutputPin(GPIOx, Pin);
+        #elif defined(GD32E230)
+        gpio_bit_reset(GPIOx, Pin);
+        #endif
+    }
+    else {
+        #if defined(MCU_F051) || defined(MCU_F031) || defined(MCU_F415) || defined(MCU_F421) || defined(MCU_G071)
         LL_GPIO_SetOutputPin(GPIOx, Pin);
+        #elif defined(GD32E230)
+        gpio_bit_set(GPIOx, Pin);
+        #endif
     }
 }
 

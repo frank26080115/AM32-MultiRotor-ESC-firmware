@@ -261,7 +261,7 @@ uint16_t target_e_com_time_low;
 
 
 uint8_t crsf_input_channel = 1;
-char eeprom_layout_version = 2;
+char eeprom_layout_version = 3;
 char dir_reversed = 0;
 char comp_pwm = 1;
 char VARIABLE_PWM = 1;
@@ -789,6 +789,7 @@ void loadEEpromSettings(){
 
         if(eepromBuffer[0x43] == 0x01){
             armed = 1;
+            led_set_armed();
         }
 
         if(eepromBuffer[0x42] == 0x01) {
